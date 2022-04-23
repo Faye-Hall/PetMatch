@@ -92,7 +92,10 @@ def add_pets(response):
                 if existing_pet is None:
                     pet_id = pet['id'],
                     name = pet['name'],
-                    image = pet["photos"][0]["medium"],
+                    try:
+                        image = pet["photos"][0]["medium"]
+                    except IndexError:
+                        image = 'Not Currently Available',
                     description = pet['description'],
                     location = pet['contact']['address']['postcode'],
                     species = pet['species'],
