@@ -159,10 +159,10 @@ def delete_matches():
 def delete_user():
     """Delete A User From The Database"""
     current_user = session['username']
-    user = User.query.filter_by(username=current_user).first()   
+    user = User.query.filter_by(username=current_user).first()  
     db.session.delete(user)
     db.session.commit()
-    db.session.remove()        
+    db.session.remove()          
         
 def delete_favorites():
     """Delete All Favorites From The Database For A User"""
