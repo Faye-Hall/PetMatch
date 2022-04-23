@@ -1,0 +1,183 @@
+body{
+    background-color: lightseagreen;
+}
+
+.body-content-div {
+    margin-left: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+header {
+    background: #55d6aa;
+    border-style: solid;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    height: 55px;
+}
+
+header::after {
+    content:"";
+    display: table;
+    clear: both;
+}
+
+.logo {
+
+    float:left;
+    font-size: large;
+}
+
+nav { 
+    float: right;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top:23px;
+
+    postion: relative;
+}
+
+nav a {
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px
+}
+
+nav a:hover {
+    color: #000
+}
+
+nav a::before {
+    content:'';
+    display: block;
+    height: 5px;
+    background-color: #444;
+
+    postion:absolute;
+    top:0;
+    width:0%;
+
+    transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+/*<!-- HTML !-->
+<button class="button-54" role="button">Button 54</button>
+
+/* CSS */
+button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #55d6aa;
+  
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  margin-bottom: 10px;
+ 
+  
+}
+
+.fav-button{
+    margin-top: 10px;
+}
+
+.h1-title{
+    color: purple;
+    font-weight: 600;
+}
+
+.pet-info{
+    color: purple;
+    line-height: 30px;
+}
+
+.survey-ol {
+    color: purple;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+select {
+    margin-top: 5px;
+    border-radius: 30px;
+    width: 100px;
+    background-color: #55d6aa;
+    
+    border-color: black;
+    border-style: groove;
+    border-width: 2px;
+}
+
+
+img {
+    width: 200px;
+    height: 300px;
+}
+
+.edit-link {
+    color: purple;
+}
+
+.flash-msg p {
+    font-weight: 600;
+    font-size: 30px;
+    color: darkgreen;
+}
+
+#login-form p {
+    color: purple;
+    font-weight: 600;
+}
+
+#login-form input {
+    border:groove;
+    border-color: black;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    background-color: #55d6aa;
+}
+
+#register-form p {
+    color: purple;
+    font-weight: 600;
+}
+
+#register-form input {
+    border:groove;
+    border-color: black;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    background-color: #55d6aa;
+}
+
+#user-edit-form p {
+    color: purple;
+    font-weight: 600;
+}
+
+#user-edit-form input {
+    border:groove;
+    border-color: black;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    background-color: #55d6aa;
+}
+

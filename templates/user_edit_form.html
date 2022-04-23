@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+    <title>{% block title %}Edit User{% endblock %}</title>
+
+
+<body>
+
+    {% block content %}
+
+    <h1>Edit Your Information</h1>
+
+    <form id="user-edit-form" class="form" method="POST">
+        <ol>
+            {{form.hidden_tag()}}
+            {% for field in form if field.widget.input_type != 'hidden' %}
+
+
+            <li>{{field.label}}<br>
+                {{field}}</li><br>
+
+            {% for error in field.errors %}
+            {{erorr}}
+            {% endfor %}
+
+
+            {% endfor %}
+            <button>Submit</button>
+        </ol>
+    </form>
+
+
+    {% endblock %}
+
+</body>
+
+</html>

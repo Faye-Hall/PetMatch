@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}{{pet.name}}{% endblock %}
+
+{% block content %}
+
+<section class="flash-msg">
+{% for msg in get_flashed_messages() %}
+{{msg}}
+{% endfor %}
+</section>
+
+<div id="pet-info-div">
+
+    <b>
+        <div id="match-info-div">
+            <h1>About {{pet.name}}</h1>
+
+            <b>
+                <div>
+                    Name: <i>{{pet.name}}</i><br>
+                    Photo URL: <img src="{{pet.image}}" alt="No Image Availabe"><br>
+                    Id: <i>{{pet.id}}</i><br>
+                    Description: <i>{{pet.description}}</i><br>
+                    Location: <i>{{pet.location}}</i><br>
+                    Species: <i>{{pet.species}}</i><br>
+                    Breed: <i>{{pet.breed}}</i><br>
+                    Spayed_Neutered: <i>{{pet.spayed_neutered}}</i><br>
+                    House Trained: <i>{{pet.house_trained}}</i><br>
+                    Has Special_Needs: <i>{{pet.special_needs}}</i><br>
+                </div><br>
+            </b>
+
+        </div>
+    </b>
+
+</div>
+
+<div>
+    <form id="logout-button" method="POST" action="/logout"><button>Logout</button></form>
+</div>
+
+<div>
+    <form id="home-button" method="POST" action="/">
+        <button>Home</button>
+    </form>
+</div>
+
+
+{% endblock %}

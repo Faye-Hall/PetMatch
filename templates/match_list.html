@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title%} Your Matches! {% endblock %}
+
+{% block content %}
+
+{% if matches %}
+
+<section class="flash-msg">
+
+    {% for msg in get_flashed_messages() %}
+    <p >{{msg}}</p>
+    {% endfor %}
+
+</section> 
+
+
+<div id="match-info-div">
+    <h1 class="h1-title">Here Are All Of Your Matches!</h1>
+    <div>
+        <form id="delete-matches-button" method="POST" action="/delete_matches"><button>Delete All Matches</button>
+        </form>
+    </div>
+
+    <b>
+
+        {% for pet in matches %}
+
+    
+        <div class="pet-info">
+
+            Name: <i>{{pet.name}}</i><br>
+            <img src="{{pet.image}}" alt="No Image Available"><br>
+            Id: <i>{{pet.id}}</i><br>
+            Description: <i>{{pet.description}}</i><br>
+            Location: <i>{{pet.location}}</i><br>
+            Species: <i>{{pet.species}}</i><br>
+            Breed: <i>{{pet.breed}}</i><br>
+            Spayed_Neutered: <i>{{pet.spayed_neutered}}</i><br>
+            House Trained: <i>{{pet.house_trained}}</i><br>
+            Has Special_Needs: <i>{{pet.special_needs}}</i><br>
+            <form method="post" action="/{{pet.id}}/add_favorites">
+                <button class="fav-button">Add to Favorites</button>
+            </form>
+
+        </div><br>
+
+        {% endfor %}
+    </b>
+
+</div>
+
+{% else %}
+<h1>You Have No Matches, Please Take Our <a href="/survey">Survey</a>!</h1>
+{% endif %}
+
+
+{% endblock %}

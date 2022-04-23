@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title%} Your Favorites! {% endblock %}
+
+{% block content %}
+
+{% if favorites %}
+
+
+
+<div id="match-info-div">
+    <h1 class="h1-title">Here Are All Of Your Favorites!</h1>
+
+    <form id="delete-favorite-button" method="POST" action="/delete_favorites">
+        <button class="button">Delete All Favorites</button>
+    </form>
+
+    <b>
+        {% for pet in favorites %}
+        <div class="pet-info">
+
+            Name: <i>{{pet.name}}</i><br>
+            <img src="{{pet.image}}" alt="No Image Available"><br>
+            Id: <i>{{pet.id}}</i><br>
+            Description: <i>{{pet.description}}</i><br>
+            Location: <i>{{pet.location}}</i><br>
+            Species: <i>{{pet.species}}</i><br>
+            Breed: <i>{{pet.breed}}</i><br>
+            Spayed_Neutered: <i>{{pet.spayed_neutered}}</i><br>
+            House Trained: <i>{{pet.house_trained}}</i><br>
+            Has Special_Needs: <i>{{pet.special_needs}}</i><br>
+
+        </div><br>
+        <div>
+
+            {% endfor %}
+    </b>
+
+</div>
+
+{% else %}
+<h1>You Have No Favorites, Please Add Some From Your <a href="/{{current_user.username}}/matches">Matches</a>!</h1>
+{% endif %}
+
+
+{% endblock %}

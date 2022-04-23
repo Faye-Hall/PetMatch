@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title%} Homepage {% endblock %}
+
+{% block content %}
+
+<section class="flash-msg">
+
+    {% for msg in get_flashed_messages() %}
+    <p class="flash-msg">{{msg}}</p>
+    {% endfor %}
+
+</section> 
+
+<h1>Homepage</h1>
+
+<h3>Login</h3>
+<form id='login-form' class="form" method="POST">
+    <p>
+        {{form.hidden_tag()}}
+        {% for field in form
+    if field.widget.input_type != 'hidden' %}
+
+        <p>
+            {{field.label}}<br>
+            {{field}}
+
+            {% for error in field.errors %}
+            {{erorr}}
+            {% endfor %}
+
+        </p>
+        {% endfor %}
+        <button>Login</button>
+    </p>
+</form>
+
+<h4>Don't have an account? <a class="edit-link" href="/register">SignUp</a></h4>
+
+{% endblock %}

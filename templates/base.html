@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    
+    {% if current_user %}
+
+    <header>
+        <div class="container">
+
+            <p class="logo">PetMatch</p>
+
+            <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/{{current_user.username}}/matches">My Matches</a></li>
+                        <li><a href="/{{current_user.username}}/favorites">My Favorites</a></li>
+                    </ul>
+
+            </nav>
+
+        </div>
+    </header>
+   
+
+    {% else %}
+
+    <header>
+        <div class="container">
+
+            <p class="logo">PetMatch</p>
+
+            <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/">My Matches</a></li>
+                        <li><a href="/">My Favorites</a></li>
+                    </ul>
+
+            </nav>
+
+        </div>
+    </header>
+
+    {% endif %}
+    <div class="body-content-div">
+    {% block content %}{% endblock %}
+    </div>
+</body>
+
+
+

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+<body>
+
+    {% block content %}
+    <section class="flash-msg">
+
+        {% for msg in get_flashed_messages() %}
+        {{msg}}
+        {% endfor %}
+
+    </section>
+    <h1 class="h1-title">Take Our Survey!</h1>
+
+    <form id='survey-form' class="form" method="POST">
+        <ol class="survey-ol">
+            {{form.hidden_tag()}}
+            {% for field in form if field.widget.input_type != 'hidden' %}
+
+
+            <li>{{field.label}}<br>
+                {{field}}</li><br>
+
+            {% for error in field.errors %}
+            {{erorr}}
+            {% endfor %}
+
+
+            {% endfor %}
+            <button>Get Matches</button>
+        </ol>
+    </form>
+
+
+    {% endblock %}
+
+</body>
+
+</html>
