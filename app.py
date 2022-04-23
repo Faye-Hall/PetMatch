@@ -4,7 +4,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from env import API_KEY, API_SECRET_KEY, APP_SECRET_KEY
 from models import User, Pet, Survey, Match, Favorite, db, connect_db
 from forms import RegisterForm, EditUserForm, SurveyForm, LoginForm
-from functions import  get_params, get_survey_matches, add_pets, add_favorite, delete_matches, delete_favorites
+from functions import  get_params, get_survey_matches, add_pets, add_favorite, delete_matches, delete_favorites, delete_user
 import requests
 from werkzeug.exceptions import Unauthorized
 
@@ -261,13 +261,16 @@ def logout_user():
     
     return redirect('/')
 
-@app.route('/<username>/delete', methods = ['POST'])
-def delete_user():
+@app.route('/users/<username>/delete', methods = ['POST'])
+def delete_current_user(username):
     """Delete Current User Account"""
-
+    
+    delete_matches()
+    delete_favorites()
     delete_user()
+    session.clear()
 
-    flash("Account Delete")
+    flash("Account Deleted!")
     return redirect('/')
 
 @app.route('/delete_matches', methods = ['POST'])
