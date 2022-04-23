@@ -97,7 +97,7 @@ def add_pets(response):
                     except IndexError:
                         image = 'Not Currently Available',
                     description = pet['description'],
-                    location = pet['contact']['address']['postcode'],
+                    location = f" Address: {pet['contact']['address']['address1']} / Zipcode: {pet['contact']['address']['postcode']} / Phone: {pet['contact']['phone']}",
                     species = pet['species'],
                     breed = pet['breeds']['primary'],
                     spayed_neutered = pet['attributes']['spayed_neutered'],
